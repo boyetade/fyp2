@@ -143,6 +143,7 @@ function decremenT() {
       localStorage.setItem("btn", "break");
       pauseBtn.style.transform="scale(0)";
       
+
     } else {
       startBtn.classList.remove("break");
       startBtn.textContent = "start focus";

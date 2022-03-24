@@ -77,12 +77,14 @@ form button {
   display: inline;
   position: relative;
   justify-content: center;
-  background: transparent;
+  background:#E81A26;
   
-  color: #E81A26;
+  color: white;
   border: 1px solid #E81A26;
-  width: 300px;
- right: 5%;
+  width: 200px;
+ left: 10%;
+ border-radius: 50px;
+ height: 35px;
 }
 body > div.whole > div.whole > figure > div.btn-group > button.pause.resume
 form p {
@@ -176,6 +178,10 @@ justify-content: center;
 .danger {
   stroke: rgb(17, 243, 28);
   animation: pulse 0.9s ease-in-out infinite;
+}
+
+.break {
+  stroke: #3B8C15;
 }
 
 /*@keyframes pulse {
