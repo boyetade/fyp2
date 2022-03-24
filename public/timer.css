@@ -15,7 +15,7 @@
 
 .whole{
   width: 340px;
-  height: 600px;
+  height: 500px;
   background-color: yellow;
 }
 input {
@@ -35,15 +35,25 @@ input {
   
   height: 7%;
   position: relative; */
+  position: absolute;
+  display: flex;
+justify-content: center;
+   left: 10%;
+   top: 65%;
+   width: 150px;
+   height: 100px;
+   cursor: pointer;
+
 }
 
 button {
   /* margin: 5px;
   padding: 10px 16px; */
+  position: absolute ;
   border: none;
   transition: 0.1s ease-in-out;
   border-radius: 4px;
-  width: 100%;
+  
   font-size: 17px;
   font-weight: 600;
   color: #E81A26;
@@ -68,12 +78,13 @@ form button {
   position: relative;
   justify-content: center;
   background: transparent;
-  width: 100%;
+  
   color: #E81A26;
   border: 1px solid #E81A26;
   width: 300px;
  right: 5%;
 }
+body > div.whole > div.whole > figure > div.btn-group > button.pause.resume
 form p {
   
   font-size: 14px; 
@@ -100,18 +111,27 @@ button i {
   top: 1px;
 }
 .reset {
-  position: absolute;
-  bottom: 55px;
+  /* position: absolute;
+  bottom: 55px; */
   transform: scale(0);
-  z-index: 2;
-  font-size: 14px;
+  /* z-index: 2; */
+  font-size: 20px;
   font-weight: 400;
-
   line-height: 20px;
   color: #E81A26;
+  position: absolute;
+  display: flex;
+justify-content: center;
+   left: 10%;
+   top: 35%;
+   width: 150px;
+   height: 100px;
+   cursor: pointer;
 }
 .pause {
   transform: scale(0);
+  position: absolute;
+  left:40%;
 
 
 }
@@ -120,20 +140,23 @@ button i {
   display: flex;
 
   font-weight: bold;
-  height: var(--clock-element-width-height);
+  /* height: var(--clock-element-width-height); */
+  height: 300px;
   font-size: 36px;
 }
 .time {
-  position: absolute;
-  left:17%;
-  top:35%
+  position: relative;
+  left:35%;
+  top:25%;
+  height: 50px;
 }
 
 .progress-ring, .static-ring {
   position: absolute;
-   top: 40%;
-  left: 22%; 
-  transform: translate(-50%, -50%);
+  display: flex;
+justify-content: center;
+   left: 8%;
+  /* transform: translate(-50%, -50%); */
 }
 
 .progress-ring__circle {
