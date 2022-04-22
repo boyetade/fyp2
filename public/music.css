@@ -1,0 +1,127 @@
+*,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+.whole {
+    max-width: 600px;
+    height: 1000px;
+    margin: 20px 70px 50px;
+    padding: 0 20px;
+    border-radius: 10px;
+    /* box-shadow: 0px 4px 8px 0px rgb(0 0 29 / 5%); */
+    background-color: white;
+  }
+  .app-content {
+    padding: 60px 0px !important;
+}
+input {
+    transition: 0.5s ease-in-out;
+    /* margin: 5px 50px 5px 0; */
+    font-size: 18px;
+    
+   
+    border: 4px solid #E81A26;
+    
+    /* border-radius: 25px; */
+    /* width: 100%; */
+    /* margin: 5px 0; */
+  
+    
+  }
+  .authorise{
+    display: flex;
+    justify-content: center;
+      align-items: center; 
+      padding: 120px; 
+  }
+  .btn-authorise{
+    background: #E81A26;
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+      color: white;
+      font-weight: bold;
+      font-size: 25px;
+  }
+    
+  body {
+    padding: 30px;
+    background-color: #272f3f;
+    color: #E81A26;
+  }
+
+  .mb-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-label {
+      font-weight: bold;
+      font-size: 20px;
+      padding-right: 15px;
+  }
+
+  #devices-select{
+    transition: 0.5s ease-in-out;
+    font-size: 18px;
+    background: transparent;
+    border: 4px solid #E81A26;
+    color: #E81A26;
+    border-radius: 25px;
+    font-weight: bold;
+    padding-right: 5px;
+    padding-left: 10px;
+  }
+
+  .btn-device{
+    border: none;
+    background: transparent;
+    color: #E81A26;
+  }
+
+  .currentlyPlaying h1{
+     font-size: 25px;
+     text-align: center;
+     padding-top: 10px;
+  }
+
+  #trackTitle {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+  }
+  #trackArtist {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+}
+#albumImage {
+ height: 400px;
+}
+.trackInfo img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15%;
+    padding-bottom: 20px;
+}
+.btn-playing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: transparent;
+    color: #E81A26;
+    padding-left: 45%;
+
+}
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

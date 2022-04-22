@@ -1,0 +1,235 @@
+:root {
+    --clock-element-width-height:350px;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    padding: 30px;
+    background-color: #272f3f;
+    color: #E81A26;
+  }
+  .whole {
+    max-width: 600px;
+    max-height: 900px;
+    margin: 20px 70px 50px;
+    padding: 0 20px;
+    border-radius: 10px;
+    /* box-shadow: 0px 4px 8px 0px rgb(0 0 29 / 5%); */
+    background-color: white;
+  }
+
+  .app-content {
+      padding: 60px 0px !important;
+  }
+
+  /* h1 {
+    margin: 0 0 35px;
+    font-weight: 900;
+    font-size: 28px;
+    text-align: center;
+  } */
+  input {
+    transition: 0.5s ease-in-out;
+    margin: 5px 50px 5px 0;
+    font-size: 18px;
+    padding: 5px;
+    background: transparent;
+    border: 4px solid #E81A26;
+    color: #E81A26;
+    border-radius: 25px;
+    width: 100%;
+    /* margin: 5px 0; */
+    
+  }
+  .btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7%;
+    position: relative;
+    top:20%;
+    right: 21%
+  }
+  
+  button {
+    margin: 5px;
+    padding: 10px 16px;
+    border: none;
+    transition: 0.1s ease-in-out;
+    border-radius: 25px;
+    border-color: #E81A26;
+    width: 100%;
+    font-size: 17px;
+    font-weight: 600;
+    color: #E81A26;
+    line-height: 21px;
+    background: transparent;
+  } 
+  label {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    max-width: 400px;
+    margin: 35px auto 0px;
+  }
+  form button {
+    background: #E81A26;
+    width: 100%;
+    margin: 5px 0;
+    color: white;
+    border: 1px solid #E81A26;
+  }
+  form p {
+    margin: 7px 0 0;
+    font-size: 14px; 
+    color: #E81A26;
+    text-align: center;
+  }
+  .start, .pause {
+    color: #E81A26;
+  
+    position: absolute;
+    height: 100%;
+  }
+  .start {
+    z-index: 1;
+    font-size: 40px;
+  }
+  button i {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    position: relative;
+    top: 1px;
+  }
+  .reset {
+    position: absolute;
+    bottom: 55px;
+    transform: scale(0);
+    z-index: 2;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    line-height: 20px;
+  }
+  .pause {
+    transform: scale(0);
+    z-index: 0;
+  
+  }
+  .clock {
+    padding: 3px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    height: var(--clock-element-width-height);
+    font-size: 36px;
+  }
+  .clock svg {
+    width: var(--clock-element-width-height);
+    height: var(--clock-element-width-height);
+  }
+  .clock .session {
+    position: absolute;
+    top: 55px;
+    font-weight: 400;
+    font-size: 14px;
+    opacity: 0;
+    line-height: 20px;
+  }
+  .progress-ring, .static-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .progress-ring__circle {
+    transition: 0.0s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: #E81A26;
+    z-index: 2;
+  }
+
+  #focusTime, #breakTime {
+      width: 100%;
+      left: 50%;
+           
+  }
+
+  
+  .static-ring__circle {
+    stroke: #c097972a;
+  }
+  
+  
+  
+  .danger {
+    stroke: rgb(17, 243, 28);
+    animation: pulse 0.9s ease-in-out infinite;
+  }
+  
+  /*@keyframes pulse {
+    0%,
+    100% {
+      transform: rotate(-90deg) scale(1);
+    }
+    50% {
+      transform: rotate(-90deg) scale(1.05);
+    }
+    75% {
+      transform: rotate(-90deg) scale(0.8);
+    }
+  }*/
+  
+  @media screen and (min-width: 768px) {
+    body {
+      display: grid;
+      grid-template-areas:
+        "head"
+        "clock"
+        "form"
+        "btns";
+    }
+    .btn-group {
+      grid-area: btns;
+      justify-content: center;
+    }
+    .clock {
+      grid-area: clock;
+    }
+    h1 {
+      grid-area: head;
+  
+      align-self: center;
+    }
+    form {
+      align-self: center;
+      justify-self: center;
+      grid-area: form;
+    }
+    footer {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 375px) {
+    footer {
+      position: static;
+    }
+  }

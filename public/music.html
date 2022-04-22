@@ -1,43 +1,72 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style type="text/css">
-        #login {
-          display: none;
-        }
-      
-        #loggedin {
-          display: none;
-        }
-      </style>
-</head>
-<body>
-    <div>
-        <div id="login">
-         <h1>First, log in to spotify</h1>
-         <a href="/login">Log in</a>
-        </div>
-        <div id="loggedin">
-        </div>
-     </div>
-    
-     <script id="loggedin-template" type="text/x-handlebars-template">
-        <h1>Logged in as </h1>
-        <img id="avatar" width="200" src="" />
-        <dl>
-         <dt>Display name</dt><dd></dd>
-         <dt>Username</dt><dd></dd>
-         <dt>Email</dt><dd></dd>
-         <dt>Spotify URI</dt><dd><a href=""></a></dd>
-         <dt>Link</dt><dd><a href=""></a></dd>
-         <dt>Profile Image</dt><dd></dd>
-        </dl>
-        <p><a href="/">Log in again</a></p>
-     </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="music.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-</body>
+<title>Document</title>
+</head>
+<body onload="onPageLoad()">
+  <div class="whole">
+    <div class="logo">
+      <a href="index.html"> <img src="/focus-logo.png" alt="logo" width="100" height="100"></a>
+    </div>
+    <nav class="nav">
+        <a href="calendar.html" class="nav__link">
+    <i class="material-icons nav__icon">calendar_today</i>
+    <span class="nav__link">Calendar</span>
+        </a>
+        <a href="profile.html" class="nav__link">
+        <i class="material-icons nav__icon">account_circle</i>
+        <span class="nav__link">Profile</span>
+        </a>
+        <a href="index.html" class="nav__link ">
+          <i class="material-icons nav__icon" >timer</i>
+          <span class="nav__link">Timer</span>
+        </a>
+      </nav>
+      <div id="authorise">
+    <input class="btn btn-authorise btn-lg" type="button" onclick="requestAuthorization()" value="Connect to Spotify"><br/>
+    </div>
+    <div id="deviceSelection">
+    <div class="mb-3">
+      <label for="devices" class="form-label">Current device:</label>
+      <select id="devices-select" class="form-control">
+      </select>
+      <!-- <input class="btn btn-device btn-sm mt-3" type="button" " value="Refresh Devices" > -->
+      <button type="submit" name="submit" onclick="refreshDevices()" class="btn-device"><i class="material-icons" style="font-size:35px;">refresh</i></button>
+  </div>
+  </div>
+  <div class="currentlyPlaying">
+        <h1> Currently Playing</h1>
+        <!-- <input type="button" class="btn btn-primary btn-sm mt-3" onclick="" value="Refresh Currently Playing"> -->
+        <button type="submit" name="submit" onclick="currentlyPlaying()" class="btn-playing"><i class="material-icons" style="font-size:35px;">refresh</i></button>
+        <div class="trackInfo">
+           <div id="trackTitle"></div>
+            <div id="trackArtist"></div>
+            <img id="albumImage" src="">
+           
+        </div>
+    </div>
+    <div class="music control">
+      
+          <div class="controls">
+          <button type="submit" name="submit" onclick="previous()" class="btn-controls"><i class="material-icons" style="font-size:45px;">skip_previous</i></button>
+          <button type="submit" name="submit" onclick="play()" class="btn-controls"><i class="material-icons" style="font-size:45px;">play_arrow</i></button>
+          <button type="submit" name="submit" onclick="shuffle()" class="btn-controls"><i class="material-icons" style="font-size:35px;">shuffle</i></button>
+          <button type="submit" name="submit" onclick="pause()" class="btn-controls"><i class="material-icons" style="font-size:35px;">pause</i></button>
+          <button type="submit" name="submit" onclick="next()" class="btn-controls"><i class="material-icons" style="font-size:35px;">skip_next</i></button>
+  </div> </div>
+</div>
+    </body>
+    <script src="music.js"></script>
 </html>

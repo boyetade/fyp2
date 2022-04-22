@@ -1,0 +1,136 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: 30px;
+  background-color: #272f3f;
+  color: #E81A26;
+}
+.whole {
+  max-width: 800px;
+  margin: 20px 70px 50px;
+  padding: 0 0;
+  border-radius: 10px;
+  /* box-shadow: 0px 4px 8px 0px rgb(0 0 29 / 5%); */
+  background-color: white;
+}
+
+.app-content {
+    padding: 60px 0px !important;
+}
+#date  {
+    font-weight: bold;
+    font-size: 18px;
+}
+#calMonth {
+    background-color: #E81A26;
+    width: 340px;
+  height: 80px;
+    font-weight: bold;
+    color: white;
+    padding-top: 10px;
+    font-size: 27px;
+}
+
+.calendar{
+    max-width: 600px;
+    height: 52rem;
+    color: #E81A26;
+    background-color: white;
+    width: 100%;
+}
+.month{
+    width: 100%;
+  height: 100px;
+  background-color: #E81A26;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  padding: 0 1rem;
+  /* text-align: center; */
+  color: white;
+}
+.month i {
+    font-size: 25px;
+    cursor: pointer;
+    display: inline-block;
+  }
+.month h1 {
+    font-size: 35px;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+    margin-bottom: 5px; 
+    font-weight: bold;
+}
+  #calDay {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  #calDay div {
+    
+    max-width: 800px;
+    font-size: 20px;
+    
+    letter-spacing: 20px;
+    width: calc(600px / 7);
+    display: flex;
+    justify-content: center;
+   align-items: center;
+   font-weight: bold;
+   margin-bottom: 30px;
+  }
+  .calNum{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* padding: 5px;  */
+  }
+  .calNum div {
+    font-size: 15px;
+    /* margin: 0.3rem; */
+    width: calc(600px / 7);
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    /* text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5); */
+    transition: background-color 0.2s;
+  }
+  .calNum div:hover:not(.today) {
+    background-color: transparent;
+    border: 0.2rem solid #E81A26;
+    cursor: pointer;
+  }
+  .prevDate,
+.nextMonth, 
+.next-date
+{
+  opacity: 0.5;
+}
+.today {
+    background-color: #E81A26;
+    border-radius: 25px;
+
+    color: white;
+  }
+p {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+
+}
+#authorize_button {
+  justify-content: center;
+  align-items: center;
+}
+
+  

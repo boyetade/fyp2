@@ -13,11 +13,7 @@
   box-sizing: border-box;
 }
 
-.whole{
-  width: 340px;
-  height: 500px;
-  background-color: yellow;
-}
+
 input {
   transition: 0.5s ease-in-out;
   margin: 10px 0;
@@ -108,7 +104,7 @@ form p {
 button i {
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 50px;
   position: relative;
   top: 1px;
 }
@@ -150,8 +146,9 @@ justify-content: center;
   position: relative;
   left:35%;
   top:25%;
-  height: 50px;
+  height: 90px;
 }
+
 
 .progress-ring, .static-ring {
   position: absolute;

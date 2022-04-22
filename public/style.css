@@ -18,4 +18,15 @@ display: flex;
 justify-content: center;
 }
 
-
+/* .whole{
+  width: 340px;
+  height: 500px;
+  background-color: yellow;
+} */
+        #login {
+          display: none;
+        }
+      
+        #loggedin {
+          display: none;
+        }
