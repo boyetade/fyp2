@@ -33,10 +33,15 @@
           <i class="material-icons nav__icon" >timer</i>
           <span class="nav__link">Timer</span>
         </a>
+        <a href="music.html" class="nav__link ">
+          <i class="material-icons nav__icon" >music_note</i>
+          <span class="nav__link">Music</span>
+        </a>
       </nav>
       <div id="authorise">
     <input class="btn btn-authorise btn-lg" type="button" onclick="requestAuthorization()" value="Connect to Spotify"><br/>
     </div>
+  
     <div id="deviceSelection">
     <div class="mb-3">
       <label for="devices" class="form-label">Current device:</label>
@@ -46,6 +51,9 @@
       <button type="submit" name="submit" onclick="refreshDevices()" class="btn-device"><i class="material-icons" style="font-size:35px;">refresh</i></button>
   </div>
   </div>
+  <div class="viewPlaylist">
+  <a href=playlist.html class="viewPlaylist">View Your Playlists</a>
+</div>
   <div class="currentlyPlaying">
         <h1> Currently Playing</h1>
         <!-- <input type="button" class="btn btn-primary btn-sm mt-3" onclick="" value="Refresh Currently Playing"> -->
@@ -60,13 +68,15 @@
     <div class="music control">
       
           <div class="controls">
-          <button type="submit" name="submit" onclick="previous()" class="btn-controls"><i class="material-icons" style="font-size:45px;">skip_previous</i></button>
-          <button type="submit" name="submit" onclick="play()" class="btn-controls"><i class="material-icons" style="font-size:45px;">play_arrow</i></button>
-          <button type="submit" name="submit" onclick="shuffle()" class="btn-controls"><i class="material-icons" style="font-size:35px;">shuffle</i></button>
-          <button type="submit" name="submit" onclick="pause()" class="btn-controls"><i class="material-icons" style="font-size:35px;">pause</i></button>
-          <button type="submit" name="submit" onclick="next()" class="btn-controls"><i class="material-icons" style="font-size:35px;">skip_next</i></button>
+          <button type="submit" name="submit" onclick="previous()" class="btn-controls"><i class="material-icons" style="font-size:65px;">skip_previous</i></button>
+          <button type="submit" name="submit" onclick="play()" class="btn-controls"><i class="material-icons" style="font-size:65px;">play_arrow</i></button>
+          <!-- <button type="submit" name="submit" onclick="shuffle()" class="btn-controls"><i class="material-icons" style="font-size:65px;">shuffle</i></button> -->
+          <button type="submit" name="submit" onclick="pause()" class="btn-controls"><i class="material-icons" style="font-size:65px;">pause</i></button>
+          <button type="submit" name="submit" onclick="next()" class="btn-controls"><i class="material-icons" style="font-size:65px;">skip_next</i></button>
   </div> </div>
+  
 </div>
+
     </body>
     <script src="music.js"></script>
 </html>
