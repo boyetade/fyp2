@@ -128,9 +128,40 @@ p {
   text-align: center;
 
 }
-#authorize_button {
+.auth-button{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  
+}
+.auth-button button{
+  background-color: #E81A26;
+  color: white;
+  border: none;
+  width: 80px;
+  height: 40px;
+  font-family:  'Maven Pro', sans-serif;
+  font-weight: bold;
+}
+
+.btn-cal {
+  border: none;
+  background: transparent;
+  color: #E81A26;
+  padding-right: 10px;
+}
+.public{
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-  
+#date{
+  background-color: #E81A26;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+}

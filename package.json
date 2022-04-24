@@ -13,13 +13,20 @@
   "dependencies": {
     "@fullcalendar/core": "^5.11.0",
     "@fullcalendar/google-calendar": "^5.11.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "connect-flash": "^0.1.1",
     "dotenv": "^16.0.0",
-    "ejs": "^3.0.2",
+    "ejs": "^3.1.7",
     "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
     "google-auth-library": "^7.14.1",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.4.1",
     "mongoose": "^6.2.8",
     "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
     "spotify-web-api-js": "^1.5.2"
   }
 }

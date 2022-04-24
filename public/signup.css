@@ -1,0 +1,26 @@
+.whole{
+    height: 900px;
+}
+
+.regForm {
+    padding-top: 50px;
+    
+   
+}
+
+.regForm p {
+    font-size:20px;
+}
+
+.loginForm{
+
+    padding-top: 150px;
+}
+
+.signin p {
+   font-size: 20px; 
+}
+
+hr {
+    
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="timer1.css">
+  <link rel="stylesheet" href="signup.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round|Material+Icons+Outlined" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<title>Document</title>
+</head>
+<body>
+  <div class="whole">
+  <!-- Navbar -->
+  <div class="logo">
+  <a href="index.html"> <img src="/focus-logo.png" alt="logo" width="100" height="100"></a>
+</div>
+<nav class="nav">
+    <a href="calendar.html" class="nav__link">
+<i class="material-icons-outlined nav__icon" style="font-size:45px;">calendar_today</i>
+<span class="nav__link">Calendar</span>
+    </a>
+    <a href="profile.html" class="nav__link">
+    <i class="material-icons nav__icon" style="font-size:45px;">account_circle</i>
+    <span class="nav__link">Profile</span>
+    </a>
+    <a href="index.html" class="nav__link ">
+      <i class="material-icons-outlined nav__icon" style="font-size:45px;">timer</i>
+      <span class="nav__link">Timer</span>
+    </a>
+    <a href="music.html" class="nav__link ">
+      <i class="material-icons-outlined nav__icon" style="font-size:45px;" >music_note</i>
+      <span class="nav__link">Music</span>
+    </a>
+  </nav>
+  <form id="regForm">
+    <div class="regForm">
+      <h1>Register</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <label for="fname"><b>First name</b></label>
+      <input type="text" placeholder="Enter First Name" name="fname" id="fname" required>
+      
+      <label for="lname"><b>Last Name</b></label>
+      <input type="text" placeholder="Enter Last Name" name="lname" id="lname" required>
+      
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" id="email" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+  
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+      <hr>
+  
+      <button type="submit" class="registerbtn">Register</button>
+    </div>
+    
+    <div class="signin">
+      <p>Already have an account? <a href="login.html">Sign in</a>.</p>
+    </div>
+  </form>
+
+  <script>
+      const form = document.getElementById('regForm')
+			form.addEventListener('submit', registerUser)
+
+			async function registerUser(event) {
+				event.preventDefault()
+				const firstName = document.getElementById('fname').value
+                const lastName = document.getElementById('lname').value
+                const email = document.getElementById('email').value
+				const password = document.getElementById('psw').value
+
+                const result = await fetch('/api/register', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						firstName,
+                        lastName, 
+                        email,
+						password
+					})
+				}).then((res) => res.json())
+
+				if (result.status === 'ok') {
+					// everythign went fine
+					alert('Success')
+				} else {
+					alert(result.error)
+				}
+			}
+
+  </script>
+  </body>
+</html>

@@ -7,7 +7,7 @@
    <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="nav.css">
   <link rel="stylesheet" href="calendar.css"> 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,29 +24,29 @@
       </div>
       <nav class="nav">
           <a href="calendar.html" class="nav__link">
-      <i class="material-icons nav__icon">calendar_today</i>
-      <span class="nav__link">Calendar</span>
+      <i class="material-icons nav__icon" style="font-size:45px;">calendar_today</i>
+      <span class="nav__link" >Calendar</span>
           </a>
-          <a href="profile.html" class="nav__link">
-          <i class="material-icons nav__icon">account_circle</i>
+          <a href="login.html" class="nav__link">
+          <i class="material-icons-outlined nav__icon" style="font-size:45px;">account_circle</i>
           <span class="nav__link">Profile</span>
           </a>
           <a href="index.html" class="nav__link ">
-            <i class="material-icons nav__icon" >timer</i>
+            <i class="material-icons-outlined nav__icon" style="font-size:45px;">timer</i>
             <span class="nav__link">Timer</span>
           </a>
           <a href="music.html" class="nav__link ">
-            <i class="material-icons nav__icon" >music_note</i>
+            <i class="material-icons-outlined nav__icon" style="font-size:45px;">music_note</i>
             <span class="nav__link">Music</span>
           </a>
         </nav>
-        <p>Connect your Google Calendar</p>
-        <!--Add buttons to initiate auth sequence and sign out-->
-        <button id="authorize_button" style="display: none;align-items: center;">Authorize</button>
-        <button id="signout_button" style="display: none;">Sign Out</button>
-        
-        <pre id="content" style="white-space: pre-wrap;"></pre>
-        <div id="date">
+       
+        <div id="date"> </div>
+          <div class="public">
+            <label for="public-calendar" class="pCal">Public Calendar ID</label>
+            <input type="text" class="form-control" id="public-calendar" placeholder="">
+            <button type="submit" name="submit" onclick="" class="btn-cal"><i class="material-icons" style="font-size:35px;">refresh</i></button>
+        </div> 
       <!-- <div id="calMonth"></div> -->
           <!-- <div class="calendar">
               <div class="month">
@@ -76,7 +76,15 @@
         <!-- <p id="date"></p> -->
 
         <!-- </div> -->
+
         <div id='calendar'></div>
+        <p>Connect your Google Calendar</p>
+        <!--Add buttons to initiate auth sequence and sign out-->
+        <div class="auth-button">
+        <button id="authorize_button" style="display: none;">Authorise</button>
+        <button id="signout_button" style="display: none;">Sign Out</button>
+        </div>
+        <pre id="content" style="white-space: pre-wrap;"></pre>
             <script src="calendar.js"></script>
         <script async defer src="https://apis.google.com/js/api.js"
         onload="this.onload=function(){};handleClientLoad()"

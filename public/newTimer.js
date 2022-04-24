@@ -94,6 +94,8 @@ const mindiv = document.querySelector(".mins");
 const secdiv = document.querySelector(".secs");
 
 const startBtn = document.querySelector(".start");
+//const pauseBtn = document.querySelector(".pause");
+const resetBtn = document.querySelector(".reset");
 localStorage.setItem("btn", "focus");
 
 let initial, totalsecs, perc, paused, mins, seconds;

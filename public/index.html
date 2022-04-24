@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="nav.css">
   <link rel="stylesheet" href="timer1.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round|Material+Icons+Outlined" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,19 +23,19 @@
 </div>
 <nav class="nav">
     <a href="calendar.html" class="nav__link">
-<i class="material-icons nav__icon">calendar_today</i>
+<i class="material-icons-outlined nav__icon" style="font-size:45px;">calendar_today</i>
 <span class="nav__link">Calendar</span>
     </a>
-    <a href="profile.html" class="nav__link">
-    <i class="material-icons nav__icon">account_circle</i>
+    <a href="login.html" class="nav__link">
+    <i class="material-icons-outlined nav__icon" style="font-size:45px;">account_circle</i>
     <span class="nav__link">Profile</span>
     </a>
     <a href="index.html" class="nav__link ">
-      <i class="material-icons nav__icon" >timer</i>
+      <i class="material-icons nav__icon" style="font-size:45px;">timer</i>
       <span class="nav__link">Timer</span>
     </a>
     <a href="music.html" class="nav__link ">
-      <i class="material-icons nav__icon" >music_note</i>
+      <i class="material-icons-outlined nav__icon" style="font-size:45px;" >music_note</i>
       <span class="nav__link">Music</span>
     </a>
   </nav>
@@ -51,11 +51,11 @@
         <button class="start"><i class="material-icons-round" style="font-size:60px;">
           play_arrow
         </i></button>
-        
         <button class="pause">pause</button>
-     
-      </div> <button class="reset">reset</button>
-        <svg class="progress-ring" height="350" width="350">
+    
+      </div> 
+        
+      <svg class="progress-ring" height="350" width="350">
           <circle
             class="progress-ring__circle"
             stroke-width="10"
@@ -73,7 +73,7 @@
             cx="175" 
             cy="175" />
           </svg>
-       
+          <button class="reset">reset</button>
     </figure>
   
      
@@ -85,7 +85,6 @@
         <input type="number" value="1" id="breakTime" />
         <button type="submit">Save settings</button>
       </form>
-  
       
       <script src="setTime.js"></script>
       <script src="newTimer.js"></script>
