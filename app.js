@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const User = require('./model/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-
+ 
 const port = process.env.PORT || 3000
 // app.get('/', (req, res)=> {
 //    res.send('hi')
