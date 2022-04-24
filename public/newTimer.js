@@ -86,20 +86,20 @@
 //   }
 // });
 
-
+//Getting HTML elements
 const el = document.querySelector(".clock");
-const bell = document.querySelector("audio");
 
 const mindiv = document.querySelector(".mins");
 const secdiv = document.querySelector(".secs");
 
 const startBtn = document.querySelector(".start");
-//const pauseBtn = document.querySelector(".pause");
 const resetBtn = document.querySelector(".reset");
 localStorage.setItem("btn", "focus");
 
+//Creating variable for timer function
 let initial, totalsecs, perc, paused, mins, seconds;
 
+//When start button is selected
 startBtn.addEventListener("click", () => {
   let btn = localStorage.getItem("btn");
 
@@ -112,14 +112,15 @@ startBtn.addEventListener("click", () => {
   seconds = mins * 60;
   totalsecs = mins * 60;
   setTimeout(decremenT(), 60);
-  startBtn.style.transform = "scale(0)";
-  pauseBtn.style.transform = "scale(1)";
-  resetBtn.style.transform = "scale(1)";
+  startBtn.style.transform = "scale(0)"; //hide start button
+  pauseBtn.style.transform = "scale(1)"; //show pause button
+  resetBtn.style.transform = "scale(1)"; // show restart
   circle.style.transition = "0.5s";
   paused = false;
 });
 
-function decremenT() {
+//Decrement timer
+function decremenT() { 
   mindiv.textContent = Math.floor(seconds / 60);
   secdiv.textContent = seconds % 60 > 9 ? seconds % 60 : `0${seconds % 60}`;
   if (circle.classList.contains("danger")) {
@@ -128,11 +129,11 @@ function decremenT() {
 
   if (seconds > 0) {
     perc = Math.ceil(((totalsecs - seconds) / totalsecs) * 100);
-    setProgress(perc);
-    seconds--;
+    setProgress(perc); //sets progress bar
+    seconds--; //decrement seconds
     initial = window.setTimeout("decremenT()", 1000);
     if (seconds < 10) {
-      circle.classList.add("danger");
+      circle.classList.add("danger"); 
     }
   } else {
     mins = 0;
@@ -140,14 +141,14 @@ function decremenT() {
     let btn = localStorage.getItem("btn");
 
     if (btn === "focus") {
-      startBtn.textContent = "start break";
+      startBtn.textContent = "start break"; //change to start break
       startBtn.classList.add("break");
       localStorage.setItem("btn", "break");
       pauseBtn.style.transform="scale(0)";
       
 
     } else {
-      startBtn.classList.remove("break");
+      startBtn.classList.remove("break");  
       startBtn.textContent = "start focus";
       localStorage.setItem("btn", "focus");
     }
