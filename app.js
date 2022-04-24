@@ -6,13 +6,14 @@ const User = require('./model/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
+const port = process.env.PORT || 3000
 // app.get('/', (req, res)=> {
 //    res.send('hi')
 // });
 app.use(bodyParser.json())
 
-app.listen(3000, ()=> {
-        console.log (`Listening on Port 3000`)
+app.listen(port, ()=> {
+        console.log (`Listening on Port ${port}`)
         })
 
 // const connectionParams = {
