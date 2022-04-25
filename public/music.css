@@ -34,17 +34,16 @@ input {
   
     
   }
-  .authorise{
+  #authorise{
     display: flex;
     justify-content: center;
       align-items: center; 
-      padding: 120px; 
   }
   .btn-authorise{
     background: #E81A26;
-      border-radius: 50%;
+      border-radius: 25px;
       width: 300px;
-      height: 300px;
+      height: 100px;
       color: white;
       font-weight: bold;
       font-size: 25px;

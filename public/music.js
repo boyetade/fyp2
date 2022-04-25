@@ -4,7 +4,7 @@ var client_secret = 'cdbe500d9c164131928d1c9982fa33f0'; // Your secret
 var redirect_uri = 'https://focusme-180014367.herokuapp.com/music.html'; // Your redirect uri
 var currentPlaylist = "";
 
-//const AUTHORIZE = "https://accounts.spotify.com/authorize"
+const AUTHORISE = "https://accounts.spotify.com/authorize"
 const TOKEN = "https://accounts.spotify.com/api/token";
 const DEVICES = "https://api.spotify.com/v1/me/player/devices";
 const LOGOUT  =" https://accounts.spotify.com/en/logout";
@@ -35,20 +35,21 @@ function onPageLoad(){
         else {
             // we have an access token so present device section
             document.getElementById("deviceSelection").style.display = 'block';  
-            document.getElementById("authorise").style.display = "none";
+            // document.getElementById("authorise").style.display = "none";
             refreshDevices();
             refreshPlaylists();
             currentlyPlaying();
         }
     }
 }
-
+//handle authorisation redirect
 function handleRedirect(){
     let code = getCode();
     fetchAccessToken( code );
     window.history.pushState("", "", redirect_uri); // remove param from url
 }
 
+//Get code from redirect URL
 function getCode(){
     let code = null;
     const queryString = window.location.search;
@@ -58,46 +59,52 @@ function getCode(){
     }
     return code;
 }
-function requestAuthorization(){
+
+//authorisation request
+function requestAuthorisation(){
     client_id = client_id;
     client_secret = client_secret;
    
 
-    let url = AUTHORIZE;
+    let url = AUTHORISE;
     url += "?client_id=" + client_id;
     url += "&response_type=code";
     url += "&redirect_uri=" + encodeURI(redirect_uri);
     url += "&show_dialog=true";
     url += "&scope=user-read-private user-read-email user-modify-playback-state user-read-playback-position user-library-read streaming user-read-playback-state user-read-recently-played playlist-read-private";
-    window.location.href = url; // Show Spotify's authorization screen
+    window.location.href = url; // Show Spotify's authorisation screen
 }
+
+//Use code from URL to get access Token
 function fetchAccessToken( code ){
     let body = "grant_type=authorization_code";
     body += "&code=" + code; 
     body += "&redirect_uri=" + encodeURI(redirect_uri);
     body += "&client_id=" + client_id;
     body += "&client_secret=" + client_secret;
-    callAuthorizationApi(body);
+    callAuthorisationApi(body);
 }
 
+//get refresh token
 function refreshAccessToken(){
     refresh_token = localStorage.getItem("refresh_token");
     let body = "grant_type=refresh_token";
     body += "&refresh_token=" + refresh_token;
     body += "&client_id=" + client_id;
-    callAuthorizationApi(body);
+    callAuthorisationApi(body);
 }
 
-function callAuthorizationApi(body){
+//Using XMLHttpRequest to create request for Authorisation
+function callAuthorisationApi(body){
     let xhr = new XMLHttpRequest();
     xhr.open("POST", TOKEN, true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.setRequestHeader('Authorization', 'Basic ' + btoa(client_id + ":" + client_secret));
     xhr.send(body);
-    xhr.onload = handleAuthorizationResponse;
+    xhr.onload = handleAuthorisationResponse;
 }
-
-function handleAuthorizationResponse(){
+//Responses depending on status
+function handleAuthorisationResponse(){
     if ( this.status == 200 ){
         var data = JSON.parse(this.responseText);
         console.log(data);
@@ -117,11 +124,12 @@ function handleAuthorizationResponse(){
         alert(this.responseText);
     }
 }
-
+//Refresh available devices
 function refreshDevices(){
     callApi( "GET", DEVICES, null, handleDevicesResponse );
 }
 
+//Responses depending on status for devices request
 function handleDevicesResponse(){
     if ( this.status == 200 ){
         var data = JSON.parse(this.responseText);
@@ -137,12 +145,16 @@ function handleDevicesResponse(){
         alert(this.responseText);
     }
 }
+
+//Adding devices to available device selection
 function addDevice(item){
     let node = document.createElement("option");
     node.value = item.id;
     node.innerHTML = item.name;
     document.getElementById("devices-select").appendChild(node); 
 }
+
+//API call simplifier
 function callApi(method, url, body, callback){
     let xhr = new XMLHttpRequest();
     xhr.open(method, url, true);
@@ -151,6 +163,8 @@ function callApi(method, url, body, callback){
     xhr.send(body);
     xhr.onload = callback;
 }
+
+//Remove all items if unavailable
 function removeAllItems( elementId ){
     let node = document.getElementById(elementId);
     while (node.firstChild) {
@@ -158,10 +172,12 @@ function removeAllItems( elementId ){
     }
 }
 
+//Currently playing request
 function currentlyPlaying(){
     callApi( "GET", PLAYER + "?market=US", null, handleCurrentlyPlayingResponse );
 }
 
+//Responses depending on status for currently playing request
 function handleCurrentlyPlayingResponse(){
     if ( this.status == 200 ){
         var data = JSON.parse(this.responseText);
@@ -198,43 +214,37 @@ function handleCurrentlyPlayingResponse(){
     }
 }
 
+//Music controllers requests 
+
+//Play
 function play(){
-    // let playlist_id = document.getElementById("playlists").value;
-    // let trackindex = document.getElementById("tracks").value;
-    // let album = document.getElementById("album").value;
+
     let body = {};
-    // if ( album.length > 0 ){
-    //     body.context_uri = album;
-    // }
-    // else{
-    //     body.context_uri = "spotify:playlist:" + playlist_id;
-    // }
-    // body.offset = {};
-    // body.offset.position = trackindex.length > 0 ? Number(trackindex) : 0;
-    // body.offset.position_ms = 0;
+   
     callApi( "PUT", PLAY + "?device_id=" + deviceId(), JSON.stringify(body), handleApiResponse );
 }
 
-function shuffle(){
-    callApi( "PUT", SHUFFLE + "?state=true&device_id=" + deviceId(), null, handleApiResponse );
-    play(); 
-}
-
+//Pause
 function pause(){
     callApi( "PUT", PAUSE + "?device_id=" + deviceId(), null, handleApiResponse );
 }
 
+//Next
 function next(){
     callApi( "POST", NEXT + "?device_id=" + deviceId(), null, handleApiResponse );
 }
 
+//Previous
 function previous(){
     callApi( "POST", PREVIOUS + "?device_id=" + deviceId(), null, handleApiResponse );
 }
 
+//get the device name
 function deviceId(){
     return document.getElementById("devices-select").value;
 }
+
+//API response depending on the music control
 function handleApiResponse(){
     if ( this.status == 200){
         console.log(this.responseText);
@@ -251,10 +261,13 @@ function handleApiResponse(){
         alert(this.responseText);
     }    
 }
+
+//Refresh user's playlist selection
 function refreshPlaylists(){
     callApi( "GET", PLAYLISTS, null, handlePlaylistsResponse );
 }
 
+//API response for playlist 
 function handlePlaylistsResponse(){
     if ( this.status == 200 ){
         var data = JSON.parse(this.responseText);
@@ -273,6 +286,7 @@ function handlePlaylistsResponse(){
     }
 }
 
+//adding playing to selection
 function addPlaylist(item){
     let node = document.createElement("option");
     node.value = item.id;
@@ -280,7 +294,7 @@ function addPlaylist(item){
     document.getElementById("playlistsSelect").appendChild(node); 
 }
 
-
+//Get requests for tracks from playlist
 function fetchTracks(){
     let playlist_id = document.getElementById("playlistsSelect").value;
     if ( playlist_id.length > 0 ){
@@ -289,6 +303,7 @@ function fetchTracks(){
     }
 }
 
+//API response
 function handleTracksResponse(){
     if ( this.status == 200 ){
         var data = JSON.parse(this.responseText);
@@ -305,6 +320,7 @@ function handleTracksResponse(){
     }
 }
 
+//Adding track to list
 function addTrack(item, index){
     let node = document.createElement("option");
     node.value = index;

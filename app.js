@@ -12,6 +12,7 @@ const port = process.env.PORT || 3000
 // });
 app.use(bodyParser.json())
 
+
 app.listen(port, ()=> {
         console.log (`Listening on Port ${port}`)
         })
@@ -30,6 +31,8 @@ mongoose
   
 
 app.use(express.static("public"))
+
+
 
 app.post('/api/login', async (req, res) => {
 	const { email, password } = req.body

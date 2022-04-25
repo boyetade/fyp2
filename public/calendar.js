@@ -284,7 +284,8 @@ var authorizeButton = document.getElementById('authorize_button');
 
 
   public_id = document.getElementById("public-calendar").value;
-document.addEventListener('DOMContentLoaded', function() {
+//creating calendar from JavaScript Library 
+  document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
   var calendar = new FullCalendar.Calendar(calendarEl, 
     {
@@ -301,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function() {
       displayEventTime:false,
       googleCalendarApiKey:'AIzaSyCQoZ73RrqoYAkUMs6PaIFQsAFg3ElPm9M',
       events: {
-      googleCalendarId: 'ttq3m98h9pn5ab391j80ije6l4@group.calendar.google.com'
+      googleCalendarId: 'ttq3m98h9pn5ab391j80ije6l4@group.calendar.google.com' //test calendar id
       }
     });
   calendar.render();
