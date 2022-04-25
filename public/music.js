@@ -35,7 +35,7 @@ function onPageLoad(){
         else {
             // we have an access token so present device section
             document.getElementById("deviceSelection").style.display = 'block';  
-            // document.getElementById("authorise").style.display = "none";
+            document.getElementById("authorise").style.display = "none";
             refreshDevices();
             refreshPlaylists();
             currentlyPlaying();
